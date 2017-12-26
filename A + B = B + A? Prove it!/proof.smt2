@@ -1,0 +1,16 @@
+(echo "Proof of the commutativity of addition of natural numbers")
+(echo "Inspired by: https://www.codewars.com/kata/59db393bc1596bd2b700007f")
+(echo "If you see an `unsat` below the horizontal rule then the conjecture has just been successfully proven to be valid for all natural numbers A and B")
+(echo "--------------------------------------------------------------------------------")
+(declare-const n Int)
+(declare-const m Int)
+(define-fun natural ((n Int)) Bool
+  (>= n 0)
+)
+(assert (natural n))
+(assert (natural m))
+(define-fun plusCommutes () Bool
+  (= (+ n m) (+ m n))
+)
+(assert (not plusCommutes))
+(check-sat)
